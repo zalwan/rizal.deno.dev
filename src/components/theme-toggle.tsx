@@ -7,17 +7,15 @@ import { Moon, Sun, Monitor } from "lucide-react";
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
-  const nextTheme = () => {
-    if (theme === "system") return "light";
-    if (theme === "light") return "dark";
-    return "system";
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setTheme(nextTheme())}
+      onClick={toggleTheme}
       className="rounded-full cursor-pointer"
       aria-label="Toggle theme"
     >
