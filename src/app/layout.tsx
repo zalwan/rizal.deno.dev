@@ -16,9 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={` antialiased`}>
+      <body className={`antialiased`}>
         <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
+          <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
             <Header />
             <main>{children}</main>
             <Footer />

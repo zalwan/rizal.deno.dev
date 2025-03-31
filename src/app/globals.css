@@ -117,8 +117,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-all duration-500 ease-in-out;
   }
+}
+
+.smooth-transition {
+  @apply transition-all duration-500 ease-in-out;
 }
 
 .wrapper {

@@ -3,7 +3,7 @@ import { ThemeToggle } from "../theme-toggle";
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 smooth-transition">
       <div className="container flex h-16 items-center justify-between wrapper px-2">
         <Link href="/" className="font-bold text-xl">
           TesT.

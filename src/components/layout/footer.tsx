@@ -2,12 +2,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full  bg-background">
-      <div className="container py-8 md:py-12">
-        {/* Copyright */}
-        <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} copyright by rizal suryawan </p>
-        </div>
+    <footer className="w-full border-t bg-background smooth-transition">
+      <div className="py-6 text-center text-sm text-muted-foreground">
+        <strong className="leading-relaxed">&lt; Rizal Suryawan /&gt;</strong>
+        <p>Copyright © 2022 - {currentYear} All right reserved</p>
       </div>
     </footer>
   );
