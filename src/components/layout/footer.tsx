@@ -6,7 +6,7 @@ export default function Footer() {
   const { socialMediaLinks } = data.hero;
 
   return (
-    <footer className="bg-background smooth-transition w-full border-t">
+    <footer className="bg-background smooth-transition flex w-full flex-col items-center justify-center border-t">
       <div className="text-muted-foreground py-6 text-center text-sm">
         <div className="flex justify-center gap-2 pb-3 lg:hidden">
           {socialMediaLinks.map(({ icon: Icon, url }, index) => (

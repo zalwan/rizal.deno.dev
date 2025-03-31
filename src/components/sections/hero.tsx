@@ -8,7 +8,7 @@ export default function Hero() {
   const { profileData, contactWA, socialMediaLinks } = data.hero;
 
   return (
-    <section className="flex w-full flex-col items-center justify-center py-24">
+    <section className="flex w-full flex-col items-center justify-center py-12">
       <div className="grid items-center gap-8 lg:grid-cols-2">
         <div className="order-last flex flex-col items-center text-center lg:order-first lg:items-start lg:text-left">
           <Badge variant="outline" className="text-md border-0 capitalize">
@@ -59,6 +59,37 @@ export default function Hero() {
           height={400}
           className="max-h-96 w-full rounded-md object-cover"
         />
+      </div>
+      <div className="flex flex-col items-center justify-center py-14">
+        <h3 className="text-primary/50 mb-10 text-3xl font-bold capitalize">
+          powered by
+        </h3>
+        <div className="flex flex-col items-center justify-center gap-20 lg:flex-row">
+          <Image
+            className="dark:invert"
+            src="/tailwind.svg"
+            alt="tailwind logo"
+            width={70}
+            height={10}
+            priority
+          />
+          <Image
+            className="dark:invert"
+            src="/next.svg"
+            alt="Next.js logo"
+            width={180}
+            height={38}
+            priority
+          />
+          <Image
+            className="dark:invert"
+            src="/shadcn.svg"
+            alt="tailwind logo"
+            width={60}
+            height={5}
+            priority
+          />
+        </div>
       </div>
     </section>
   );
