@@ -120,3 +120,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.wrapper {
+  @apply max-w-6xl mx-auto;
+}
