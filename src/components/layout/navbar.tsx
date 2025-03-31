@@ -3,14 +3,14 @@ import { ThemeToggle } from "../theme-toggle";
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 smooth-transition">
-      <div className="container flex h-16 items-center justify-between wrapper px-2">
-        <Link href="/" className="font-bold text-xl">
+    <nav className="bg-background/95 supports-[backdrop-filter]:bg-background/60 smooth-transition w-full border-b backdrop-blur">
+      <div className="wrapper container flex h-16 items-center justify-between px-4">
+        <Link href="/" className="text-xl font-bold">
           TesT.
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-6 md:items-center">
+        <div className="hidden gap-6 md:flex md:items-center">
           <Link
             href="/#about"
             className="text-muted-foreground hover:text-foreground transition-colors"

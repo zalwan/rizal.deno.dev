@@ -6,8 +6,8 @@ export interface ProfileData {
   fullName: string;
   description: string;
   image: {
-    src: string,
-    alt: string,
+    src: string;
+    alt: string;
   };
 }
 
