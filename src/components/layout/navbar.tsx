@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="bg-background/95 supports-[backdrop-filter]:bg-background/60 smooth-transition w-full border-b backdrop-blur">
       <div className="wrapper container flex h-16 items-center justify-between px-4">
         <Link href="/" className="text-xl font-bold">
-          <Image src="/logo.svg" alt="logo" width={50} height={50} />
+          <Image             className="dark:invert" src="/logo.svg" alt="logo" width={50} height={50} />
         </Link>
 
         {/* Desktop Navigation */}
