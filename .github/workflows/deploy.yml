@@ -18,6 +18,24 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
+      # Cache node_modules to speed up npm install
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Cache .next to speed up rebuilds
+      - name: Cache Next.js build
+        uses: actions/cache@v3
+        with:
+          path: .next
+          key: ${{ runner.os }}-next-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-next-
+
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
