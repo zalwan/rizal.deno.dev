@@ -126,5 +126,5 @@
 }
 
 .wrapper {
-  @apply max-w-6xl mx-auto;
+  @apply mx-auto max-w-6xl;
 }

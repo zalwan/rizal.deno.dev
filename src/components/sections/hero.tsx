@@ -34,7 +34,6 @@ export default function Hero() {
               >
                 <a href={contact.url} target="_blank" rel="noopener noreferrer">
                   {contact.text}
-                  <ArrowRight className="size-4" />
                 </a>
               </Button>
             ))}
@@ -52,13 +51,47 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <Image
-          src={profileData.image.src}
-          alt={profileData.image.alt}
-          width={600}
-          height={400}
-          className="max-h-96 w-full rounded-md object-cover"
-        />
+        <div className="relative mx-auto max-h-96 max-w-96 overflow-hidden rounded-full border-4 border-amber-700/40 bg-amber-600 shadow-2xl shadow-amber-700">
+          <Image
+            src={profileData.image.src}
+            alt={profileData.image.alt}
+            width={600}
+            height={400}
+            className="max-h-96 w-full object-contain"
+          />
+
+          <svg className="pointer-events-none absolute top-0 left-0 h-full w-full opacity-30">
+            <defs>
+              <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0">
+                  <animate
+                    attributeName="offset"
+                    values="-1; 2"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="25%" stopColor="#ffffff" stopOpacity="0.5">
+                  <animate
+                    attributeName="offset"
+                    values="-0.75; 2.25"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="50%" stopColor="#ffffff" stopOpacity="0">
+                  <animate
+                    attributeName="offset"
+                    values="-0.5; 2.5"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="400" fill="url(#shimmer)" />
+          </svg>
+        </div>
       </div>
       <div className="flex flex-col items-center justify-center py-14">
         <h3 className="text-primary/50 mb-10 text-3xl font-bold capitalize">

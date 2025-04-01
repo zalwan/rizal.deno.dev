@@ -28,8 +28,8 @@ export const profileData: ProfileData = {
   description:
     "Passionate about mobile development, cloud computing, AI, and open-source. Also into Linux, custom PCs, and exploring the latest tech innovations.",
   image: {
-    src: "https://images.unsplash.com/photo-1742800073948-fccfaccf46e1?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Profile section demo image showing interface components",
+    src: "/img/hero-img.png",
+    alt: "Hero image",
   },
 };
 
