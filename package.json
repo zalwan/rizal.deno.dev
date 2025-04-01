@@ -1,5 +1,5 @@
 {
-  "name": "rzs-landing",
+  "name": "rizal.deno.dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -28,6 +28,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
