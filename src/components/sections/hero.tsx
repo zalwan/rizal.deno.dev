@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import data from "@/data";
@@ -42,7 +42,7 @@ export default function Hero() {
                 key={index}
                 asChild
                 variant="outline"
-                className="hidden w-full sm:w-auto lg:block"
+                className="bg hidden w-full sm:w-auto lg:block"
               >
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   <Icon className="size-4" />

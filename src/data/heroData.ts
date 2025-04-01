@@ -35,13 +35,13 @@ export const profileData: ProfileData = {
 
 export const contactWA: ContactWA[] = [
   {
-    text: "Chat on WhatsApp",
-    url: "https://wa.me/6285813095235?text=Hi%20Rizal,%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect!",
+    text: "Chat on WhatsApp 📩",
+    url: "https://wa.me/6285813095235?text=Hi%20Rizal,%20I%20found%20your%20web%20and%20would%20like%20to%20connect!",
   },
 ];
 
 export const socialMediaLinks: SocialMediaLink[] = [
-  { icon: Github, url: "https://github.com/rizalsuryawan" },
-  { icon: Linkedin, url: "https://linkedin.com/in/rizalsuryawan" },
-  { icon: Youtube, url: "https://youtube.com/@rizalsuryawan" },
+  { icon: Github, url: "https://github.com/zalwan" },
+  { icon: Linkedin, url: "https://linkedin.com/in/rizal-suryawan" },
+  { icon: Youtube, url: "https://youtube.com/@rizalsuryawan86" },
 ];
