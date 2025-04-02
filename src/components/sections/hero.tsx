@@ -11,10 +11,12 @@ export default function Hero() {
     <section className="flex w-full flex-col items-center justify-center py-12">
       <div className="grid items-center gap-8 lg:grid-cols-2">
         <div className="order-last flex flex-col items-center text-center lg:order-first lg:items-start lg:text-left">
-          <Badge variant="outline" className="text-md border-0 capitalize">
-            {profileData.badge}
-            <ArrowUpRight className="ml-2 size-4" />
-          </Badge>
+          <div className="hidden lg:block">
+            <Badge variant="outline" className="text-md border-0 capitalize">
+              {profileData.badge}
+              <ArrowUpRight className="ml-2 size-4" />
+            </Badge>
+          </div>
           <h1 className="mt-6 text-4xl font-bold text-pretty capitalize lg:text-6xl">
             {profileData.heading}
           </h1>
@@ -51,15 +53,22 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto max-h-96 max-w-96 overflow-hidden rounded-full border-4 border-amber-700/40 bg-amber-600 shadow-2xl shadow-amber-700">
+
+        <div className="flex justify-center lg:hidden">
+          <Badge variant="outline" className="text-md border-0 capitalize">
+            {profileData.badge}
+            <ArrowUpRight className="ml-2 size-4" />
+          </Badge>
+        </div>
+        <div className="relative mx-auto max-h-72 overflow-hidden rounded-full border-4 border-amber-700/40 bg-amber-600 shadow-2xl shadow-amber-700 lg:max-h-96">
           <Image
+            className="max-h-72 w-full object-contain lg:max-h-96"
             src={profileData.image.src}
             alt={profileData.image.alt}
             width={600}
             height={400}
-            className="max-h-96 w-full object-contain"
+            priority
           />
-
           <svg className="pointer-events-none absolute top-0 left-0 h-full w-full opacity-30">
             <defs>
               <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -93,8 +102,8 @@ export default function Hero() {
           </svg>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center py-14">
-        <h3 className="text-primary/50 mb-10 text-3xl font-bold capitalize">
+      <div className="flex flex-col items-center justify-center pt-24 pb-14">
+        <h3 className="text-primary/60 mb-6 animate-pulse text-xl font-bold uppercase">
           powered by
         </h3>
         <div className="flex flex-col items-center justify-center gap-20 lg:flex-row">
@@ -102,25 +111,22 @@ export default function Hero() {
             className="dark:invert"
             src="/tailwind.svg"
             alt="tailwind logo"
-            width={70}
-            height={10}
-            priority
+            width={50}
+            height={50}
           />
           <Image
             className="dark:invert"
             src="/next.svg"
             alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
+            width={150}
+            height={150}
           />
           <Image
             className="dark:invert"
             src="/shadcn.svg"
             alt="tailwind logo"
-            width={60}
-            height={5}
-            priority
+            width={40}
+            height={40}
           />
         </div>
       </div>
