@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import data from "@/data";
+import Logos from "./logos";
 
 export default function Hero() {
   const { profileData, contactWA, socialMediaLinks } = data.hero;
@@ -102,34 +103,7 @@ export default function Hero() {
           </svg>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center pt-24 pb-14">
-        <h3 className="text-primary/60 mb-6 animate-pulse text-xl font-bold uppercase">
-          powered by
-        </h3>
-        <div className="flex flex-col items-center justify-center gap-20 lg:flex-row">
-          <Image
-            className="dark:invert"
-            src="/tailwind.svg"
-            alt="tailwind logo"
-            width={50}
-            height={50}
-          />
-          <Image
-            className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={150}
-            height={150}
-          />
-          <Image
-            className="dark:invert"
-            src="/shadcn.svg"
-            alt="tailwind logo"
-            width={40}
-            height={40}
-          />
-        </div>
-      </div>
+      <Logos />
     </section>
   );
 }
