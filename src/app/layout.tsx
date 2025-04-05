@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import MainWrapper from "@/components/layout/main-wrapper";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
@@ -28,11 +29,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased`}>
         <ThemeProvider>
-          <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </div>
+          <MainWrapper>
+            <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </div>
+          </MainWrapper>
         </ThemeProvider>
       </body>
     </html>

@@ -16,7 +16,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="cursor-pointer rounded-full"
+      className="cursor-pointer"
       aria-label="Toggle theme"
     >
       <Sun className="absolute h-5 w-5 scale-100 rotate-0 duration-500 dark:scale-0 dark:-rotate-90" />
