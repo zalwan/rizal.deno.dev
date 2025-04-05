@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -25,12 +26,13 @@ export default function Navbar() {
     <nav className="bg-background/95 supports-[backdrop-filter]:bg-background/60 smooth-transition w-full border-b backdrop-blur">
       <div className="wrapper container flex h-16 items-center justify-between px-4">
         <Link href="/" className="text-xl font-bold">
-          <img
+          <Image
             className="dark:invert"
             src="/logo.svg"
             alt="rizal suryawan logo"
             width={50}
             height={50}
+            priority
           />
         </Link>
 
