@@ -4,10 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import data from "@/data";
 import { ThemeToggle } from "../theme-toggle";
+import { useDrawerStore } from "@/stores";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Button } from "../ui/button";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
   const { navItems } = data.navbar;
+  const { toggleDrawer } = useDrawerStore();
 
   return (
     <nav className="bg-background/95 supports-[backdrop-filter]:bg-background/60 smooth-transition w-full border-b backdrop-blur">
@@ -44,8 +58,47 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
+          <Drawer onOpenChange={toggleDrawer}>
+            <DrawerTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="cursor-pointer"
+                aria-label="Toggle menu"
+              >
+                <Menu />
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader className="text-left">
+                <DrawerTitle className="text-center">
+                  Navigation Menu
+                </DrawerTitle>
+              </DrawerHeader>
+              <div className="flex flex-col gap-4 p-4">
+                {navItems.map((item, index) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <DrawerClose asChild key={index}>
+                      <Link
+                        href={item.href}
+                        className={`p-2 text-lg ${
+                          isActive
+                            ? "font-medium text-amber-600"
+                            : "text-muted-foreground"
+                        }`}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {item.title}
+                      </Link>
+                    </DrawerClose>
+                  );
+                })}
+              </div>
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
     </nav>
