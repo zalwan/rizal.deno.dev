@@ -94,7 +94,7 @@ export default function Navbar() {
                         href={item.href}
                         className={`flex items-center justify-center gap-2 rounded-md border-2 p-4 text-center text-lg ${
                           isActive
-                            ? "border-amber-600 font-medium text-amber-600"
+                            ? "border-amber-600 bg-amber-600/5 font-medium text-amber-600"
                             : "text-muted-foreground"
                         } ${isFirstAndOdd ? "col-span-2" : ""}`}
                         aria-current={isActive ? "page" : undefined}
