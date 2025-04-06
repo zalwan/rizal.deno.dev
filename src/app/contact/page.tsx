@@ -6,7 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, MessageCircle } from "lucide-react";
+import {
+  CalendarDays,
+  Clock,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function ContactPage() {
@@ -37,11 +44,11 @@ export default function ContactPage() {
 
   return (
     <div className="wrapper px-4 py-8 md:py-12">
-      <section className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
-          <h1 className="mb-4 text-3xl font-bold md:text-4xl">Contact Us</h1>
+          <h1 className="mb-4 text-3xl font-bold md:text-4xl">Get in Touch</h1>
           <p className="text-muted-foreground mx-auto max-w-2xl">
-            Get in touch with us directly through WhatsApp
+            Feel free to reach out through WhatsApp or other channels
           </p>
         </div>
 
@@ -121,7 +128,7 @@ export default function ContactPage() {
 
               <div className="text-muted-foreground text-sm">
                 <p>* Required fields</p>
-                <p className="mt-2">Or contact us directly:</p>
+                <p className="mt-2">Or contact directly:</p>
                 <Link
                   href={`https://wa.me/${phoneNumber}`}
                   target="_blank"
@@ -134,22 +141,42 @@ export default function ContactPage() {
             </CardContent>
           </Card>
 
-          {/* Contact Info and Map */}
+          {/* Personal Contact Information */}
           <div className="space-y-6">
-            {/* Map Placeholder */}
-            <div className="bg-muted flex h-64 items-center justify-center rounded-lg">
-              <div className="p-4 text-center">
-                <MapPin className="text-muted-foreground mx-auto mb-2 h-12 w-12" />
-                <p className="text-muted-foreground">
-                  Location map will appear here
-                </p>
-              </div>
-            </div>
-
-            {/* Contact Information */}
+            {/* Availability Section */}
             <Card>
               <CardHeader>
-                <CardTitle>Our Contact Details</CardTitle>
+                <CardTitle>My Availability</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <Clock className="text-primary mt-0.5 h-5 w-5" />
+                  <div>
+                    <p className="font-medium">Response Time</p>
+                    <p className="text-muted-foreground">
+                      Typically replies within 24 hours
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <CalendarDays className="text-primary mt-0.5 h-5 w-5" />
+                  <div>
+                    <p className="font-medium">Working Hours</p>
+                    <p className="text-muted-foreground">
+                      Monday-Friday: 9AM-5PM
+                      <br />
+                      Weekend: Occasionally available
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Contact Methods */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Other Ways to Connect</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -161,7 +188,7 @@ export default function ContactPage() {
                       href={`https://wa.me/${phoneNumber}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-1 inline-block text-sm text-green-600 hover:underline"
+                      className="mt-1 inline-block text-sm hover:underline"
                     >
                       Start chat now
                     </Link>
@@ -169,23 +196,42 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <MapPin className="text-primary mt-0.5 h-5 w-5" />
+                  <Mail className="text-primary mt-0.5 h-5 w-5" />
                   <div>
-                    <p className="font-medium">Business Address</p>
+                    <p className="font-medium">Email</p>
                     <p className="text-muted-foreground">
-                      123 Business Avenue
-                      <br />
-                      City, State 12345
-                      <br />
-                      Country
+                      rizal.suse@gmail.com
                     </p>
+                    <Link
+                      href="mailto:rizal.suse@gmail.com"
+                      className="mt-1 inline-block text-sm hover:underline"
+                    >
+                      Send email
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Linkedin className="text-primary mt-0.5 h-5 w-5" />
+
+                  <div>
+                    <p className="font-medium">LinkedIn</p>
+                    <p className="text-muted-foreground">Rizal Suryawan</p>
+                    <Link
+                      href={"https://www.linkedin.com/in/rizal-suryawan/"}
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-sm hover:underline"
+                      target="_blank"
+                    >
+                      Let's connect
+                    </Link>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
