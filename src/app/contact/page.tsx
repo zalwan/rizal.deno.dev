@@ -6,20 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  CalendarDays,
-  Clock,
-  Linkedin,
-  Mail,
-  MessageCircle,
-  Phone,
-} from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
+import data from "@/data";
 
 export default function ContactPage() {
-  // WhatsApp details
-  const phoneNumber = "6285813095235";
-
+  const { contactData, availabilityData, contactMethods } = data.contact;
   // State management
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -29,13 +21,13 @@ export default function ContactPage() {
   });
 
   // Validation
-  const isNameValid = name.trim().length >= 2;
+  const isNameValid = name.trim().length >= 3;
   const isMessageValid = message.trim().length >= 10;
   const isFormValid = isNameValid && isMessageValid;
 
   const generateWhatsAppLink = () => {
     const formattedMessage = `Hello, my name is ${name.trim()}. ${message.trim()}`;
-    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(formattedMessage)}`;
+    return `https://wa.me/${contactData.phoneNumber}?text=${encodeURIComponent(formattedMessage)}`;
   };
 
   const handleBlur = (field: "name" | "message") => {
@@ -76,7 +68,7 @@ export default function ContactPage() {
                 />
                 {isTouched.name && !isNameValid && (
                   <p className="text-sm text-red-500">
-                    Please enter at least 2 characters
+                    Please enter at least 3 characters
                   </p>
                 )}
               </div>
@@ -130,12 +122,12 @@ export default function ContactPage() {
                 <p>* Required fields</p>
                 <p className="mt-2">Or contact directly:</p>
                 <Link
-                  href={`https://wa.me/${phoneNumber}`}
+                  href={`https://wa.me/${contactData.phoneNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-600 hover:underline"
                 >
-                  https://wa.me/{phoneNumber}
+                  https://wa.me/{contactData.phoneNumber}
                 </Link>
               </div>
             </CardContent>
@@ -149,27 +141,17 @@ export default function ContactPage() {
                 <CardTitle>My Availability</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <Clock className="text-primary mt-0.5 h-5 w-5" />
-                  <div>
-                    <p className="font-medium">Response Time</p>
-                    <p className="text-muted-foreground">
-                      Typically replies within 24 hours
-                    </p>
+                {availabilityData.map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <item.icon className="text-primary mt-0.5 h-5 w-5" />
+                    <div>
+                      <p className="font-medium">{item.title}</p>
+                      <p className="text-muted-foreground whitespace-pre-line">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <CalendarDays className="text-primary mt-0.5 h-5 w-5" />
-                  <div>
-                    <p className="font-medium">Working Hours</p>
-                    <p className="text-muted-foreground">
-                      Monday-Friday: 9AM-5PM
-                      <br />
-                      Weekend: Occasionally available
-                    </p>
-                  </div>
-                </div>
+                ))}
               </CardContent>
             </Card>
 
@@ -179,54 +161,23 @@ export default function ContactPage() {
                 <CardTitle>Other Ways to Connect</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <Phone className="text-primary mt-0.5 h-5 w-5" />
-                  <div>
-                    <p className="font-medium">Phone / WhatsApp</p>
-                    <p className="text-muted-foreground">+{phoneNumber}</p>
-                    <Link
-                      href={`https://wa.me/${phoneNumber}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 inline-block text-sm hover:underline"
-                    >
-                      Start chat now
-                    </Link>
+                {contactMethods.map((method, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <method.icon className="text-primary mt-0.5 h-5 w-5" />
+                    <div>
+                      <p className="font-medium">{method.title}</p>
+                      <p className="text-muted-foreground">{method.value}</p>
+                      <Link
+                        href={method.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 inline-block text-sm hover:underline"
+                      >
+                        {method.actionText}
+                      </Link>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <Mail className="text-primary mt-0.5 h-5 w-5" />
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">
-                      rizal.suse@gmail.com
-                    </p>
-                    <Link
-                      href="mailto:rizal.suse@gmail.com"
-                      className="mt-1 inline-block text-sm hover:underline"
-                    >
-                      Send email
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <Linkedin className="text-primary mt-0.5 h-5 w-5" />
-
-                  <div>
-                    <p className="font-medium">LinkedIn</p>
-                    <p className="text-muted-foreground">Rizal Suryawan</p>
-                    <Link
-                      href={"https://www.linkedin.com/in/rizal-suryawan/"}
-                      rel="noopener noreferrer"
-                      className="mt-1 inline-block text-sm hover:underline"
-                      target="_blank"
-                    >
-                      Let's connect
-                    </Link>
-                  </div>
-                </div>
+                ))}
               </CardContent>
             </Card>
           </div>
