@@ -10,7 +10,7 @@ import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 import data from "@/data";
 
-export default function ContactPage() {
+export default function Page() {
   const { contactData, availabilityData, contactMethods } = data.contact;
   // State management
   const [name, setName] = useState("");
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
   return (
     <div className="wrapper px-4 py-8 md:py-12">
-      <div className="mx-auto max-w-6xl">
+      <section className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-3xl font-bold md:text-4xl">Get in Touch</h1>
           <p className="text-muted-foreground mx-auto max-w-2xl">
@@ -182,7 +182,7 @@ export default function ContactPage() {
             </Card>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
