@@ -1,4 +1,6 @@
 import { Github, Linkedin, Youtube } from "lucide-react";
+import rizalHero from "@/assets/images/hero/hero-img.png";
+import { StaticImageData } from "next/image";
 
 export interface ProfileData {
   badge: string;
@@ -6,7 +8,7 @@ export interface ProfileData {
   fullName: string;
   description: string;
   image: {
-    src: string;
+    src: StaticImageData | string;
     alt: string;
   };
 }
@@ -28,7 +30,7 @@ export const profileData: ProfileData = {
   description:
     "Passionate about mobile development, cloud computing, AI, and open-source. Also into Linux, custom PCs, and exploring the latest tech innovations.",
   image: {
-    src: "/img/hero-img.png",
+    src: rizalHero,
     alt: "Hero image",
   },
 };

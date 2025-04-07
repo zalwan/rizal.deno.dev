@@ -68,7 +68,7 @@ export default function Hero() {
             alt={profileData.image.alt}
             width={600}
             height={400}
-            loading="eager"
+            placeholder="blur"
             priority
           />
           <svg className="pointer-events-none absolute top-0 left-0 h-full w-full opacity-30">
