@@ -1,9 +1,9 @@
 name: Deploy
 on:
   push:
-    branches: [main]
+    branches: main
   pull_request:
-    branches: [main]
+    branches: main
 
 jobs:
   deploy:
@@ -19,61 +19,35 @@ jobs:
         uses: actions/checkout@v4
 
       # Cache npm and Next.js build output
-      - name: Cache dependencies
+      - name: Cache npm and Next.js build
         uses: actions/cache@v4
         with:
           path: |
             ~/.npm
             ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.{js,jsx,ts,tsx}') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build application
-        run: npm run build
-
-      # Properly package the standalone output
-      - name: Prepare standalone output
-        run: |
-          mkdir -p .next/standalone/public
-          mkdir -p .next/standalone/.next/static
-
-          # Copy public files
-          if [ -d "public" ]; then
-            cp -r public/* .next/standalone/public/
-          fi
-
-          # Copy static files
-          cp -r .next/static/* .next/standalone/.next/static/
-
-          # Rename server file
-          mv .next/standalone/server.js .next/standalone/server.cjs
-
-          # Ensure all binary files are copied correctly
-          find .next/standalone -type f -exec chmod 644 {} \;
-
-      - name: Setup Deno
+      - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: "1.40"
+          deno-version: v2.x
 
-      - name: Deploy to Deno Deploy
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install step
+        run: "npm install"
+
+      - name: Build step
+        run: "npm run build && (cp -r public .next/standalone/public; cp -r .next/static .next/standalone/.next/static; mv .next/standalone/server.js .next/standalone/server.cjs)"
+
+      - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "rizal"
           entrypoint: "./server.cjs"
           root: ".next/standalone"
-          exclude: |
-            .git
-            .github
-            node_modules
-            *.md
