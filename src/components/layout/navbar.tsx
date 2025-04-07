@@ -33,6 +33,7 @@ export default function Navbar() {
             alt="rizal suryawan logo"
             width={50}
             height={50}
+            loading="eager"
             priority
           />
         </Link>

@@ -18,6 +18,8 @@ export default function Logos() {
               alt={logo.alt}
               width={logo.width}
               height={logo.height}
+              loading="eager"
+              priority
             />
           </div>
         ))}
