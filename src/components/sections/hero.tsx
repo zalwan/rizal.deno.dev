@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import data from "@/data";
 import Logos from "./logos";
+import imgHero from "@/assets/images/hero/hero-img.png";
 
 export default function Hero() {
   const { profileData, contactWA, socialMediaLinks } = data.hero;
@@ -64,7 +65,7 @@ export default function Hero() {
         <div className="relative mx-auto max-h-72 overflow-hidden rounded-full border-4 border-amber-700/40 bg-amber-600 shadow-2xl shadow-amber-700 lg:max-h-96">
           <Image
             className="max-h-72 w-full object-contain lg:max-h-96"
-            src={profileData.image.src}
+            src={imgHero}
             alt={profileData.image.alt}
             width={600}
             height={400}
